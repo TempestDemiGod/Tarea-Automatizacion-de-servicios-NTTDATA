@@ -1,6 +1,7 @@
 package com.nttdata.testing.stepDefinitions;
 
 import com.nttdata.testing.questions.ResponseCode;
+import com.nttdata.testing.tasks.DeleteProduct;
 import com.nttdata.testing.tasks.GetAllProducts;
 import com.nttdata.testing.tasks.PostProduct;
 import com.nttdata.testing.tasks.PutProduct;
@@ -36,7 +37,7 @@ public class ProductStepDefinition {
 
     @Then("el codigo de respuesta debe ser {int}")
     public void elCodigoDeRespuestaDebeSer(int responseCode) {
-        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseCode.getStatus(), equalTo(responseCode) )); ;
+        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseCode.getStatus(), equalTo(responseCode) ));
     }
 
     @When("el actor crea un product con (.*) (.*)$")
@@ -51,6 +52,6 @@ public class ProductStepDefinition {
 
     @When("el {actor} realiza la solicitud Delete")
     public void elActorRealizaLaSolicitudDelete(Actor actor) {
-        actor.attemptsTo();
+        actor.attemptsTo(DeleteProduct.fromEndpoint("/products"));
     }
 }
