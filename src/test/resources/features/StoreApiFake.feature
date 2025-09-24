@@ -33,7 +33,7 @@ Feature: API from FakeStore
       | title               | price  |
       | tempest Actualizado | 421.20 |
 
-  @CP01_Product @DeleteProducts
+  @CP04_Product @DeleteProducts
   Scenario: Eliminar un producto exitosamente
     Given el actor establece el endpoint de products
     When el actor realiza la solicitud Delete
