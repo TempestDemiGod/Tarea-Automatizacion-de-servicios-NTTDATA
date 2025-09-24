@@ -27,7 +27,7 @@ public class DeleteProduct implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from(endpoint+ProductID)
+                Delete.from(endpoint)
                         .with(requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
                                 .log().all()
